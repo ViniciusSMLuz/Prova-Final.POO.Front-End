@@ -20,7 +20,7 @@ async function listarProdutos() {
           
             // Criação do elemento div com a classe "card-header"
             const divCardHeader = document.createElement("div");
-            divCardHeader.className = "card-header";
+            divCardHeader.className = "card-header text-bg-info";
             divCardHeader.textContent = `${produto.idProduto}`;
           
             // Criação do elemento div com a classe "card-body"
@@ -62,9 +62,9 @@ async function listarProdutos() {
             const buttonAtualizarProduto = document.createElement("button");
             buttonAtualizarProduto.type = "button";
             buttonAtualizarProduto.className = "btn btn-outline-warning me-2";
-            buttonAtualizarProduto.textContent = "Atualizar Produto";
+            buttonAtualizarProduto.textContent = "Editar Informações";
             buttonAtualizarProduto.addEventListener("click", () => {
-              atualizarProduto(produto.idProduto);
+              getInfoProduto(produto.idProduto);
             });
           
 
@@ -179,7 +179,7 @@ async function pesquisarProduto() {
             // Criação dos elementos botões
             const buttonAtualizarProduto = document.createElement("button");
             buttonAtualizarProduto.type = "button";
-            buttonAtualizarProduto.className = "btn btn-outline-warning";
+            buttonAtualizarProduto.className = "btn btn-outline-warning me-2";
             buttonAtualizarProduto.textContent = "Atualizar Produto";
             buttonAtualizarProduto.addEventListener("click", () => {
               atualizarProduto(produto.idProduto);
@@ -187,7 +187,7 @@ async function pesquisarProduto() {
           
             const buttonDeletarProduto = document.createElement("button");
             buttonDeletarProduto.type = "button";
-            buttonDeletarProduto.className = "btn btn-outline-danger";
+            buttonDeletarProduto.className = "btn btn-outline-danger me-2";
             buttonDeletarProduto.textContent = "Deletar Produto";
             buttonDeletarProduto.addEventListener("click", () => {
               deletarProduto(produto.idProduto);
@@ -217,4 +217,35 @@ async function pesquisarProduto() {
     } catch (erro) {
       console.log(erro);
     }
+}
+
+async function getInfoProduto(id) {
+  try {
+    const response = await fetch(`http://localhost:8080/estoque/produtos/${id}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+
+    const result = await response.json();
+    document.getElementById('input-idProduto').value = id;
+    document.getElementById('input-nomeProduto').value = result.nomeProduto;
+    document.getElementById('input-marcaProduto').value = result.marcaProduto;
+    document.getElementById('input-unidadeDeMedida').value = result.unidadeDeMedida;
+    document.getElementById('input-quantidadeEmEstoque').value = result.quantidadeProduto;
+    document.getElementById('input-descProduto').value = result.descProduto;
+
+  }catch (erro) {
+    console.log(erro);
+  }
+}
+
+async function limpar(){
+  document.getElementById('input-idProduto').value = "";
+  document.getElementById('input-nomeProduto').value = ""
+  document.getElementById('input-marcaProduto').value = "";
+  document.getElementById('input-unidadeDeMedida').value = "";
+  document.getElementById('input-quantidadeEmEstoque').value = "";
+  document.getElementById('input-descProduto').value = "";
 }
