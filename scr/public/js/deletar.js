@@ -7,7 +7,8 @@ async function deletarProduto(id) {
                 "Content-Type": "application/json",
             },
         });
-    
+        
+        listarProdutos();
 
     }catch(err) {
         console.log(err)

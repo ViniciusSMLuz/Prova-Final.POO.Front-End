@@ -61,15 +61,16 @@ async function listarProdutos() {
             // Criação dos elementos botões
             const buttonAtualizarProduto = document.createElement("button");
             buttonAtualizarProduto.type = "button";
-            buttonAtualizarProduto.className = "btn btn-outline-warning mr-2";
+            buttonAtualizarProduto.className = "btn btn-outline-warning me-2 sm-2mb-2";
             buttonAtualizarProduto.textContent = "Atualizar Produto";
             buttonAtualizarProduto.addEventListener("click", () => {
               atualizarProduto(produto.idProduto);
             });
           
+
             const buttonDeletarProduto = document.createElement("button");
             buttonDeletarProduto.type = "button";
-            buttonDeletarProduto.className = "btn btn-outline-danger";
+            buttonDeletarProduto.className = "btn btn-outline-danger me-2";
             buttonDeletarProduto.textContent = "Deletar Produto";
             buttonDeletarProduto.addEventListener("click", () => {
               deletarProduto(produto.idProduto);
