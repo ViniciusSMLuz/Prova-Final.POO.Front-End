@@ -3,3 +3,7 @@
     height: auto; /* Ajuste a altura de acordo com a proporção */
     margin-right: 5px; /* Opcional: adicione um espaço à direita da imagem */
   }
+
+.paddingCard{
+    padding-bottom: 20px;
+}
