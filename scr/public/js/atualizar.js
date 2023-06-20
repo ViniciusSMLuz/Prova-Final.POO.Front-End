@@ -5,7 +5,7 @@ async function atualizarProduto() {
        "idProduto": document.getElementById('input-idProduto').value,
        "nomeProduto": document.getElementById('input-nomeProduto').value,
        "marcaProduto": document.getElementById('input-marcaProduto').value,
-       "unidadeDeMedida": parseFloat(document.getElementById('input-unidadeDeMedida').value),
+       "unidadeDeMedida": document.getElementById('input-unidadeDeMedida').value,
        "quantidadeProduto": document.getElementById('input-quantidadeEmEstoque').value,
        "descProduto": document.getElementById('input-descProduto').value
     }

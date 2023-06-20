@@ -8,6 +8,10 @@
     padding-bottom: 20px;
 }
 
+.cardTextTitle{
+    text-decoration: bold;
+}
+
 .marginButton{
     margin-left: 10px;
 }

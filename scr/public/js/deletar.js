@@ -7,10 +7,17 @@ async function deletarProduto(id) {
                 "Content-Type": "application/json",
             },
         });
-        
-        listarProdutos();
-
-    }catch(err) {
-        console.log(err)
+        if (response.ok) {
+            console.log('Produto excluído com sucesso');
+            alert('Produto excluído com sucesso');
+            listarProdutos();
+        } else {
+            console.error('Falha ao excluído o Produto:', response.status, response.statusText);
+            alert('Falha ao excluído o Produto:', response.status, response.statusText);
+        }
+    } catch (error) {
+        console.error('Erro na requisição de deletar-produto:', error);
+        alert('Erro na requisição de deletar-produto:', error);
     }
+    listarProdutos();
 }

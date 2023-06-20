@@ -10,55 +10,55 @@ async function listarProdutos() {
         var lista = document.getElementById("lista");
         lista.innerHTML = "";
         result.forEach((produto) => {
-            // Criação do elemento div com a classe "col-sm-6 mb-3 mb-sm-0 paddingCard"
+            
             const divCol = document.createElement("div");
             divCol.className = "col-sm-6 mb-3 mb-sm-0 paddingCard";
           
-            // Criação do elemento div com a classe "card"
+            
             const divCard = document.createElement("div");
             divCard.className = "card";
           
-            // Criação do elemento div com a classe "card-header"
+            
             const divCardHeader = document.createElement("div");
             divCardHeader.className = "card-header text-bg-info";
             divCardHeader.textContent = `${produto.idProduto}`;
           
-            // Criação do elemento div com a classe "card-body"
+            
             const divCardBody = document.createElement("div");
             divCardBody.className = "card-body";
           
-            // Criação do elemento h4 com a classe "card-title"
+            
             const h4CardTitle = document.createElement("h4");
             h4CardTitle.className = "card-title";
             h4CardTitle.textContent = `${produto.nomeProduto}`;
           
-            // Criação do elemento p com a classe "card-text"
+            
             const pCardText = document.createElement("p");
             pCardText.className = "card-text";
-            pCardText.textContent = `Descrição: ${produto.descProduto}`;
+            pCardText.innerHTML = `<i>${produto.descProduto}</i>`;
           
-            // Criação do elemento ul com a classe "list-group list-group-flush"
+            
             const ulListGroup = document.createElement("ul");
             ulListGroup.className = "list-group list-group-flush";
           
-            // Criação dos elementos li com a classe "list-group-item"
+            
             const liMarcaProduto = document.createElement("li");
             liMarcaProduto.className = "list-group-item";
-            liMarcaProduto.textContent = `Marca: ${produto.marcaProduto}`;
+            liMarcaProduto.innerHTML = `<b>Marca:</b> ${produto.marcaProduto}`;
           
             const liUnidadeDeMedida = document.createElement("li");
             liUnidadeDeMedida.className = "list-group-item";
-            liUnidadeDeMedida.textContent = `Unidade De Medida: ${produto.unidadeDeMedida}`;
+            liUnidadeDeMedida.innerHTML = `<b>Unidade De Medida:</b> ${produto.unidadeDeMedida}`;
           
             const liQuantidadeProduto = document.createElement("li");
             liQuantidadeProduto.className = "list-group-item";
-            liQuantidadeProduto.textContent = `Quantidade em Estoque: ${produto.quantidadeProduto} ${produto.unidadeDeMedida}`;
+            liQuantidadeProduto.innerHTML= `<b>Quantidade em Estoque:</b> ${produto.quantidadeProduto} ${produto.unidadeDeMedida}`;
           
-            // Criação do elemento div com a classe "card-body"
+            
             const divCardBodyButtons = document.createElement("div");
             divCardBodyButtons.className = "card-body";
           
-            // Criação dos elementos botões
+            
             const buttonAtualizarProduto = document.createElement("button");
             buttonAtualizarProduto.type = "button";
             buttonAtualizarProduto.className = "btn btn-outline-warning me-2";
@@ -76,7 +76,7 @@ async function listarProdutos() {
               deletarProduto(produto.idProduto);
             });
           
-            // Adiciona os elementos criados à estrutura correta
+            
             divCardBody.appendChild(h4CardTitle);
             divCardBody.appendChild(pCardText);
           
@@ -94,7 +94,7 @@ async function listarProdutos() {
           
             divCol.appendChild(divCard);
           
-            // Adiciona o elemento divCol ao elemento com o id "lista"
+            
             document.getElementById("lista").appendChild(divCol);
           });
     } catch (erro) {
@@ -128,92 +128,93 @@ async function pesquisarProduto() {
 
         lista.innerHTML = "";
         produtosEncontrados.forEach((produto) => {
-            // Criação do elemento div com a classe "col-sm-6 mb-3 mb-sm-0 paddingCard"
-            const divCol = document.createElement("div");
-            divCol.className = "col-sm-6 mb-3 mb-sm-0 paddingCard";
+  
+          const divCol = document.createElement("div");
+          divCol.className = "col-sm-6 mb-3 mb-sm-0 paddingCard";
+        
           
-            // Criação do elemento div com a classe "card"
-            const divCard = document.createElement("div");
-            divCard.className = "card";
+          const divCard = document.createElement("div");
+          divCard.className = "card";
+        
           
-            // Criação do elemento div com a classe "card-header"
-            const divCardHeader = document.createElement("div");
-            divCardHeader.className = "card-header";
-            divCardHeader.textContent = `${produto.idProduto}`;
+          const divCardHeader = document.createElement("div");
+          divCardHeader.className = "card-header text-bg-info";
+          divCardHeader.textContent = `${produto.idProduto}`;
+        
           
-            // Criação do elemento div com a classe "card-body"
-            const divCardBody = document.createElement("div");
-            divCardBody.className = "card-body";
+          const divCardBody = document.createElement("div");
+          divCardBody.className = "card-body";
+        
           
-            // Criação do elemento h4 com a classe "card-title"
-            const h4CardTitle = document.createElement("h4");
-            h4CardTitle.className = "card-title";
-            h4CardTitle.textContent = `${produto.nomeProduto}`;
+          const h4CardTitle = document.createElement("h4");
+          h4CardTitle.className = "card-title";
+          h4CardTitle.textContent = `${produto.nomeProduto}`;
+        
           
-            // Criação do elemento p com a classe "card-text"
-            const pCardText = document.createElement("p");
-            pCardText.className = "card-text";
-            pCardText.textContent = `Descrição: ${produto.descProduto}`;
+          const pCardText = document.createElement("p");
+          pCardText.className = "card-text";
+          pCardText.innerHTML = `<i>${produto.descProduto}</i>`;
+        
           
-            // Criação do elemento ul com a classe "list-group list-group-flush"
-            const ulListGroup = document.createElement("ul");
-            ulListGroup.className = "list-group list-group-flush";
+          const ulListGroup = document.createElement("ul");
+          ulListGroup.className = "list-group list-group-flush";
+        
           
-            // Criação dos elementos li com a classe "list-group-item"
-            const liMarcaProduto = document.createElement("li");
-            liMarcaProduto.className = "list-group-item";
-            liMarcaProduto.textContent = `Marca: ${produto.marcaProduto}`;
+          const liMarcaProduto = document.createElement("li");
+          liMarcaProduto.className = "list-group-item";
+          liMarcaProduto.innerHTML = `<b>Marca:</b> ${produto.marcaProduto}`;
+        
+          const liUnidadeDeMedida = document.createElement("li");
+          liUnidadeDeMedida.className = "list-group-item";
+          liUnidadeDeMedida.innerHTML = `<b>Unidade De Medida:</b> ${produto.unidadeDeMedida}`;
+        
+          const liQuantidadeProduto = document.createElement("li");
+          liQuantidadeProduto.className = "list-group-item";
+          liQuantidadeProduto.innerHTML= `<b>Quantidade em Estoque:</b> ${produto.quantidadeProduto} ${produto.unidadeDeMedida}`;
+        
           
-            const liUnidadeDeMedida = document.createElement("li");
-            liUnidadeDeMedida.className = "list-group-item";
-            liUnidadeDeMedida.textContent = `Unidade De Medida: ${produto.unidadeDeMedida}`;
+          const divCardBodyButtons = document.createElement("div");
+          divCardBodyButtons.className = "card-body";
+        
           
-            const liQuantidadeProduto = document.createElement("li");
-            liQuantidadeProduto.className = "list-group-item";
-            liQuantidadeProduto.textContent = `Quantidade em Estoque: ${produto.quantidadeProduto} ${produto.unidadeDeMedida}`;
-          
-            // Criação do elemento div com a classe "card-body"
-            const divCardBodyButtons = document.createElement("div");
-            divCardBodyButtons.className = "card-body";
-          
-            // Criação dos elementos botões
-            const buttonAtualizarProduto = document.createElement("button");
-            buttonAtualizarProduto.type = "button";
-            buttonAtualizarProduto.className = "btn btn-outline-warning me-2";
-            buttonAtualizarProduto.textContent = "Atualizar Produto";
-            buttonAtualizarProduto.addEventListener("click", () => {
-              atualizarProduto(produto.idProduto);
-            });
-          
-            const buttonDeletarProduto = document.createElement("button");
-            buttonDeletarProduto.type = "button";
-            buttonDeletarProduto.className = "btn btn-outline-danger me-2";
-            buttonDeletarProduto.textContent = "Deletar Produto";
-            buttonDeletarProduto.addEventListener("click", () => {
-              deletarProduto(produto.idProduto);
-            });
-          
-            // Adiciona os elementos criados à estrutura correta
-            divCardBody.appendChild(h4CardTitle);
-            divCardBody.appendChild(pCardText);
-          
-            ulListGroup.appendChild(liMarcaProduto);
-            ulListGroup.appendChild(liUnidadeDeMedida);
-            ulListGroup.appendChild(liQuantidadeProduto);
-          
-            divCardBodyButtons.appendChild(buttonAtualizarProduto);
-            divCardBodyButtons.appendChild(buttonDeletarProduto);
-          
-            divCard.appendChild(divCardHeader);
-            divCard.appendChild(divCardBody);
-            divCard.appendChild(ulListGroup);
-            divCard.appendChild(divCardBodyButtons);
-          
-            divCol.appendChild(divCard);
-          
-            // Adiciona o elemento divCol ao elemento com o id "lista"
-            document.getElementById("lista").appendChild(divCol);
+          const buttonAtualizarProduto = document.createElement("button");
+          buttonAtualizarProduto.type = "button";
+          buttonAtualizarProduto.className = "btn btn-outline-warning me-2";
+          buttonAtualizarProduto.textContent = "Editar Informações";
+          buttonAtualizarProduto.addEventListener("click", () => {
+            getInfoProduto(produto.idProduto);
           });
+        
+
+          const buttonDeletarProduto = document.createElement("button");
+          buttonDeletarProduto.type = "button";
+          buttonDeletarProduto.className = "btn btn-outline-danger me-2";
+          buttonDeletarProduto.textContent = "Deletar Produto";
+          buttonDeletarProduto.addEventListener("click", () => {
+            deletarProduto(produto.idProduto);
+          });
+        
+          
+          divCardBody.appendChild(h4CardTitle);
+          divCardBody.appendChild(pCardText);
+        
+          ulListGroup.appendChild(liMarcaProduto);
+          ulListGroup.appendChild(liUnidadeDeMedida);
+          ulListGroup.appendChild(liQuantidadeProduto);
+        
+          divCardBodyButtons.appendChild(buttonAtualizarProduto);
+          divCardBodyButtons.appendChild(buttonDeletarProduto);
+        
+          divCard.appendChild(divCardHeader);
+          divCard.appendChild(divCardBody);
+          divCard.appendChild(ulListGroup);
+          divCard.appendChild(divCardBodyButtons);
+        
+          divCol.appendChild(divCard);
+        
+          
+          document.getElementById("lista").appendChild(divCol);
+        });
     } catch (erro) {
       console.log(erro);
     }
