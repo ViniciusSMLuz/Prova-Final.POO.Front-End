@@ -1,5 +1,5 @@
-async function cadastrarLivro() {
-  var Livro = {
+async function cadastrarProduto() {
+  var Produto = {
       "id_produto": uuidv4(),
       "nome_produto": document.getElementById('detail-nome_produto').value,
       "marca_produto": document.getElementById('detail-marca_produto').value,
@@ -12,12 +12,12 @@ async function cadastrarLivro() {
       headers: {
           "Content-Type": "application/json"
       },
-      body: JSON.stringify(Livro)
+      body: JSON.stringify(Produto)
   };
   
   try {
      let response = await fetch("http://localhost:8080/estoque/produtos", envio);
-     listLivros();
+     listarProdutos();
      if (response.ok) {
           console.log('Produto cadastrado com sucesso');
           alert('Produto cadastrado com sucesso');
