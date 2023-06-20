@@ -1,3 +1,15 @@
-async function deletarProduto() {
+async function deletarProduto(id) {
+ 
+    try {
+        const response = await fetch(`http://localhost:8080/estoque/deletar-produto/${id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
     
+
+    }catch(err) {
+        console.log(err)
+    }
 }
