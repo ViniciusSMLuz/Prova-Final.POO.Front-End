@@ -1,0 +1,5 @@
+.input-with-image{
+    width: 20px; /* Defina a largura desejada */
+    height: auto; /* Ajuste a altura de acordo com a proporção */
+    margin-right: 5px; /* Opcional: adicione um espaço à direita da imagem */
+  }
