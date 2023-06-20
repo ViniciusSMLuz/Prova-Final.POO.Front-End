@@ -61,7 +61,7 @@ async function listarProdutos() {
             // Criação dos elementos botões
             const buttonAtualizarProduto = document.createElement("button");
             buttonAtualizarProduto.type = "button";
-            buttonAtualizarProduto.className = "btn btn-outline-warning me-2 sm-2mb-2";
+            buttonAtualizarProduto.className = "btn btn-outline-warning me-2";
             buttonAtualizarProduto.textContent = "Atualizar Produto";
             buttonAtualizarProduto.addEventListener("click", () => {
               atualizarProduto(produto.idProduto);

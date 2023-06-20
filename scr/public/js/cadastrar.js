@@ -1,11 +1,11 @@
 async function cadastrarProduto() {
   var Produto = {
-      "id_produto": uuidv4(),
-      "nome_produto": document.getElementById('detail-nome_produto').value,
-      "marca_produto": document.getElementById('detail-marca_produto').value,
-      "unidade_de_medida": document.getElementById('detail-unidade_de_medida').value,
-      "quantidade_produto": document.getElementById('detail-quantidade_produto').value,
-      "desc_produto": document.getElementById('detail-desc_produto').value   
+      "idProduto": uuidv4(),
+      "nomeProduto": document.getElementById('input-nomeProduto').value,
+      "marcaProduto": document.getElementById('input-marcaProduto').value,
+      "unidadeDeMedida": document.getElementById('input-unidadeDeMedida').value,
+      "quantidadeProduto": document.getElementById('input-quantidadeEmEstoque').value,
+      "descProduto": document.getElementById('input-descProduto').value   
   }
   let envio = {
       method: "POST",
@@ -16,7 +16,7 @@ async function cadastrarProduto() {
   };
   
   try {
-     let response = await fetch("http://localhost:8080/estoque/produtos", envio);
+     let response = await fetch("http://localhost:8080/estoque/cadastrar-produto", envio);
      listarProdutos();
      if (response.ok) {
           console.log('Produto cadastrado com sucesso');
@@ -31,3 +31,10 @@ async function cadastrarProduto() {
       alert('Erro na requisição do cadastro:', error);
   }
 }
+
+function uuidv4() {
+    return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+      (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+    );
+  }
+  
