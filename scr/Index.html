@@ -18,7 +18,7 @@
     <div class="container-fluid p-2">
         <div class="row">
             <div class="form-floating p-2">
-                <input type="text" class="form-control autocomplete" id="barraDeBusca" placeholder="Procurar" name="busca" onkeyup="pesquisarProduto()">
+                <input type="text" class="form-control autocomplete" id="barraDeBusca" placeholder="Procurar" name="barraDeBusca" onkeyup="pesquisarProduto()">
                 <label for="busca" class="form-label">Pesquisar Produto</label>
             </div>
         </div>
@@ -27,7 +27,7 @@
         <div class="form">
             <div class="row">
                 <div class="col p-2">
-                    <input type="text" class="form-control" id="input-id" name="=input-id" placeholder="ID" readonly disabled>
+                    <input type="text" class="form-control" id="input-idProduto" name="=input-idProduto" placeholder="id" readonly disabled>
                 </div>
                 <div class="col p-2">
                     <input type="text" class="form-control" id="input-nomeProduto" name="input-nomeProduto" placeholder="Nome do Produto">
@@ -53,6 +53,8 @@
     </div>
     <div class="container-fluid">
         <button type="button" class="btn btn-outline-success" onclick="cadastrarProduto()">Cadastrar</button>
+        <button type="button" class="btn btn-outline-warning" onclick="atualizarProduto()">Atualizar</button>
+        <button type="button" class="btn btn-outline-secondary" onclick="limpar()">Limpar Campos</button>
     </div>
     
     <hr>
